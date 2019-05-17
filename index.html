@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CCU Email Log Tool</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1 class="display-4">CCU Email Logger</h1>
+        </div>
+
+        <form class="needs-validation" novalidate="" id="ccuEntryForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdYwNsWl6tfM1sntQ1-eDe3m3yaKfwHWiKhWOfddpnXw_XGXw/formResponse"
+            target="hidden_iframe" onsubmit="submitted=true;">
+            <div class="row">
+                <div class="col-sm">
+                    <label>
+                        <h6>ITS Number</h6>
+                    </label>
+                    <br>
+                    <input type="text" class="form-control" name="entry.625777808" value="0000">
+                </div>
+                <div class="col-sm">
+                    <label>
+                        <h6>Login ID</h6>
+                    </label>
+                    <br>
+                    <input type="text" class="form-control" name="entry.242266648" required="" placeholder="NOT the phone extention">
+                </div>
+                <div class="col-sm">
+                    <label>
+                        <h6>Caller Mobile Number</h6>
+                    </label>
+                    <br>
+                    <input type="text" class="form-control" name="entry.244316094" required="">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
