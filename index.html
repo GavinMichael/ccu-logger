@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CCU Email Log Tool</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/daterangepicker.css">
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
@@ -23,11 +23,17 @@
 
     <div class="container">
 
-        <div class="jumbotron">
-            <h1 class="display-4">CCU Email Logger</h1>
+        <div class="row">
+            <div class="col-12">
+                <div class="jumbotron">
+                    <h1 class="display-4">CCU Email Logger</h1>
+                </div>
+            </div>
+
         </div>
         <!-- read more : https://blog.webjeda.com/google-form-customize/ -->
-        <form class="needs-validation" novalidate="" id="ccuEntryForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdbUV4V9CwbiLaCK0pfLYjMM3uETwjw0LOh4TT0qLhpcZXMfg/formResponse"
+        <form class="needs-validation" novalidate="" id="ccuEntryForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSdbUV4V9CwbiLaCK0pfLYjMM3uETwjw0LOh4TT0qLhpcZXMfg/formResponse"
             target="hidden_iframe" onsubmit="submitted=true;">
 
             <div class="row form-group-custom">
@@ -36,32 +42,33 @@
                     <label for="">
                         <h6>Source Of Contact</h6>
                     </label>
-                        <select class="custom-select" name="entry.112921490" id="sourceOfContactInput" required>
-                            <option value=""></option>
-                            <option value="Walk Ins">Walk Ins</option>
-                            <option value="Calls">Calls</option>
-                            <option value="BDU">BDU</option>
-                            <option value="Regular Emails">Regular Emails</option>
-                            <option value="GOPs">GOPs</option>
-                        </select>
+                    <select class="custom-select" name="entry.112921490" id="sourceOfContactInput" required>
+                        <option value=""></option>
+                        <option value="Walk Ins">Walk Ins</option>
+                        <option value="Calls">Calls</option>
+                        <option value="BDU">BDU</option>
+                        <option value="Regular Emails">Regular Emails</option>
+                        <option value="GOPs">GOPs</option>
+                    </select>
                 </div>
 
-                <div class="col-8">
+                <div class="col-10">
                     <label for="">
                         <h6>Subject</h6>
                     </label>
-                    <input type="text" class="form-control" value="N/A" name="" required="">
+                    <input type="text" class="form-control" value="N/A" name="entry.446823981" required="">
                 </div>
 
             </div>
 
             <div class="row form-group-custom">
                 <div class="col-sm">
-                    <i class="fas fa-lock float-right" style="margin:5px; cursor: pointer;" id="lockAgentToggle" title="Lock your name on this page. Click again to clear"></i>
+                    <i class="fas fa-lock float-right" style="margin:5px; cursor: pointer;" id="lockAgentToggle"
+                        title="Lock your name on this page. Click again to clear"></i>
                     <label for="">
                         <h6>Entered By</h6>
                     </label>
-                    <select class="custom-select" name="entry.112921490" id="agentDropDown" required>
+                    <select class="custom-select" name="entry.479466957" id="agentDropDown" required>
                         <option value=""></option>
                         <option value="Abdulla Bakhit Salem">Abdulla Bakhit Salem</option>
                         <option value="Dr. Shaima Abubacker">Dr. Shaima Abubacker</option>
@@ -236,8 +243,8 @@
                         <h6>Received Date & Time</h6>
                     </label>
                     <br>
-                    <input type="text" class="form-control" placeholder="Click Here Select" name="entry.2001175821" id="receivedDateInput"
-                        readonly required />
+                    <input type="text" class="form-control" placeholder="Click Here Select" name="entry.2001175821"
+                        id="receivedDateInput" readonly required />
                 </div>
 
                 <div class="col-sm" id="contactTypeDiv">
@@ -265,39 +272,52 @@
             </div>
 
             <!-- style="display:none" -->
-            <div class="row form-group-custom" id="gop-row" >
+            <div class="row form-group-custom" id="gop-row">
 
-                    <div class="col-3">
-                        <label for="">
-                            <h6>Type Of GOP</h6>
-                        </label>
-                            <select class="custom-select" name="" id="typeOfGOPInput" required>
-                                <option value=""></option>
-                                <option value="OP less than 20K">OP less than 20K</option>
-                                <option value="OP more than 20K">OP more than 20K</option>
-                                <option value="IP">IP</option>
-                            </select>
-                    </div>
-
-                    <div class="col-2">
-                            <label for="">
-                                <h6>Payer Notified</h6>
-                            </label>
-                                <select class="custom-select" name="" id="payerNotifiedInput" required>
-                                    <option value=""></option>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
-                                </select>
-                        </div>
-    
-                    <div class="col-8">
-                        <label for="">
-                            <h6>ER/ Elective</h6>
-                        </label>
-                        <input type="text" class="form-control" name="" >
-                    </div>
-    
+                <div class="col-3">
+                    <label for="">
+                        <h6>Type Of GOP</h6>
+                    </label>
+                    <select class="custom-select" name="entry.553393158" id="typeOfGOPInput">
+                        <option value=""></option>
+                        <option value="OP less than 20K">OP less than 20K</option>
+                        <option value="OP more than 20K">OP more than 20K</option>
+                        <option value="IP">IP</option>
+                    </select>
                 </div>
+
+                <div class="col-2" id="payerNotifiedSection" style="display: none;">
+                    <label for="">
+                        <h6>Payer Notified</h6>
+                    </label>
+                    <select class="custom-select" name="entry.1945185816" id="payerNotifiedInput">
+                        <option value=""></option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div class="col-sm">
+                    <label for="">
+                        <h6>ER/ Elective</h6>
+                    </label>
+                    <input type="text" class="form-control" name="entry.227060281" id="electiveInput">
+                </div>
+
+                <div class="col-sm" id="currentStatusSection" style="display: none">
+                    <label for="">
+                        <h6>Current Status</h6>
+                    </label>
+                    <select class="custom-select" name="entry.904979440" id="currentStatusInput">
+                        <option value=""></option>
+                        <option value="GOP Issued">GOP Issued</option>
+                        <option value="Pending">Pending</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+
+            </div>
 
             <div class="row form-group-custom endorsement-group" id="row-4">
 
@@ -360,8 +380,8 @@
                         <h6>Closed Time</h6>
                     </label>
                     <br>
-                    <input type="text" class="form-control" name="entry.1496977968" id="closedDateInput" placeholder="Click Here Select"
-                        readonly required />
+                    <input type="text" class="form-control" name="entry.1496977968" id="closedDateInput"
+                        placeholder="Click Here Select" readonly required />
                 </div>
 
                 <div class="col-sm">
@@ -376,12 +396,12 @@
                     </select>
                 </div>
 
-                <div class="col-sm" id="validOnlyInput" style="display:none;">
+                <div class="col-sm" id="validOnlySelection" style="display:none;">
                     <label>
                         <h6>ITS Number</h6>
                     </label>
                     <br>
-                    <input type="text" class="form-control" name="entry.1284483426" id="validityInput">
+                    <input type="text" class="form-control" name="entry.1284483426" id="itsNumberInput">
                 </div>
 
             </div>
@@ -403,34 +423,21 @@
             </div>
 
         </form>
-        <p>For any issues or feedback, please mail <a href="mailto:Gavin.DeSilva@nextcarehealth.com">Gavin.DeSilva@nextcarehealth.com</a>
+        <p>For any issues or feedback, please mail <a
+                href="mailto:Gavin.DeSilva@nextcarehealth.com">Gavin.DeSilva@nextcarehealth.com</a>
             or contact your team lead.</p>
     </div>
 
     <script>
 
-        // Saving agent name 
-        let lockAgentToggle = document.getElementById('lockAgentToggle');
-        let agentDropDown = document.getElementById('agentDropDown');
-
-        // on document load, get the agent name from local storage
-        if (localStorage.getItem("agentName")) {
-            agentDropDown.value = localStorage.getItem("agentName");
-            lockAgentToggle.style.color = '#28bd35'
-        }
-
-        // save or delete agent name from local storage
-        lockAgentToggle.addEventListener('click', function () {
-
-            if (localStorage.getItem("agentName") == null) {
-                localStorage.setItem("agentName", agentDropDown.value);
-                lockAgentToggle.style.color = '#28bd35'
-            } else {
-                localStorage.removeItem("agentName");
-                lockAgentToggle.style.color = ''
-            }
-
-        });
+        // initialized the date picker for date fields
+        initDates();
+        // run the agent toggle function
+        lockAgentToggle()
+        // init the Endorsed To logic
+        endorsedToFunctionality();
+        // set defaults
+        setDefaults();
 
         let payerNameSelection = document.getElementById('payerNameSelection');
 
@@ -478,98 +485,133 @@
             }
         });
 
-        // Endorsed to other
-        let endorsedToOtherSelection = document.getElementById('endorsedToOtherSelection');
-        let endorsedToInput = document.getElementById('endorsedToInput');
-        let endorsedToOtherInput = document.getElementById('endorsedToOtherInput');
+        function endorsedToFunctionality() {
+            // Endorsed to other
+            let endorsedToOtherSelection = document.getElementById('endorsedToOtherSelection');
+            let endorsedToInput = document.getElementById('endorsedToInput');
+            let endorsedToOtherInput = document.getElementById('endorsedToOtherInput');
 
-        let endorsedDateInput = document.getElementById('endorsedDateInput');
-        let followUpDatesInput = document.getElementById('followUpDatesInput');
-        let receivedOtherDeptdDateInput = document.getElementById('receivedOtherDeptdDateInput');
+            let endorsedDateInput = document.getElementById('endorsedDateInput');
+            let followUpDatesInput = document.getElementById('followUpDatesInput');
+            let receivedOtherDeptdDateInput = document.getElementById('receivedOtherDeptdDateInput');
 
-        endorsedToInput.addEventListener('change', function () {
-            if (endorsedToInput.value == "Other") {
-                endorsedToOtherSelection.style.display = 'block';
-                endorsedToOtherInput.setAttribute("required", "");
-                endorsedToOtherInput.required = true;
-            } else {
-                endorsedToOtherSelection.style.display = 'none';
-                endorsedToOtherSelection.removeAttribute("required");
-                endorsedToOtherInput.required = false;
-            }
+            // if Endorsed To dropdown is selected
+            endorsedToInput.addEventListener('change', function () {
+                // if the drop down selection is Other
+                if (endorsedToInput.value == "Other") {
+                    // show the hidden Endorsed To Other txt box
+                    endorsedToOtherSelection.style.display = 'block';
+                    // Set it as required
+                    endorsedToOtherInput.setAttribute("required", "");
+                    endorsedToOtherInput.required = true;
+                } else {
+                    // if not Other
+                    // hide the hidden Endorsed To Other txt box if it's showing
+                    endorsedToOtherSelection.style.display = 'none';
+                    // Set it as not required
+                    endorsedToOtherSelection.removeAttribute("required");
+                    endorsedToOtherInput.required = false;
+                }
 
-            // if Endorsed To is not empty, the other fileds become required
-            // Endorsed Time
-            // Follow Up Dates
-            // Received Date From Assigned Department
+                // If Endorsed To field is not empty, the Endorsed Time, Follow Up Dates & Received Date From Assigned Department fields become mandatory. 
+                // If Endorsed To field is empty, the Endorsed Time, Follow Up Dates & Received Date From Assigned Department fields can be left empty.
 
-            if (endorsedToInput.value !== "") {
-                endorsedDateInput.setAttribute("required", "");
-                endorsedDateInput.required = true;
-                endorsedDateInput.disabled = false;
-                followUpDatesInput.setAttribute("required", "");
-                followUpDatesInput.required = true;
-                followUpDatesInput.disabled = false;
-                receivedOtherDeptdDateInput.setAttribute("required", "");
-                receivedOtherDeptdDateInput.required = true;
-                receivedOtherDeptdDateInput.disabled = false;
-            } else {
-                endorsedDateInput.removeAttribute("required");
-                endorsedDateInput.required = false;
-                endorsedDateInput.value = "";
-                endorsedDateInput.disabled = true;
-                followUpDatesInput.removeAttribute("required");
-                followUpDatesInput.required = false;
-                followUpDatesInput.disabled = true;
-                receivedOtherDeptdDateInput.removeAttribute("required");
-                receivedOtherDeptdDateInput.required = false;
-                receivedOtherDeptdDateInput.value = "";
-                receivedOtherDeptdDateInput.disabled = true;
-            }
-        });
+                // if Endorsed To Dropdown is not empty
+                if (endorsedToInput.value !== "") {
+                    // Enable the Endorsed On Date and set as required
+                    endorsedDateInput.setAttribute("required", "");
+                    endorsedDateInput.required = true;
+                    endorsedDateInput.disabled = false;
+                    // Enable the Follow up Dates Txt Box and set as required
+                    followUpDatesInput.setAttribute("required", "");
+                    followUpDatesInput.required = true;
+                    followUpDatesInput.disabled = false;
+                    // Enable the Received By Other Dept Date Field and set as required
+                    receivedOtherDeptdDateInput.setAttribute("required", "");
+                    receivedOtherDeptdDateInput.required = true;
+                    receivedOtherDeptdDateInput.disabled = false;
+                } else {
+                    // if not empty
+                    // Disable the Endorsed On Date and set as not required
+                    endorsedDateInput.removeAttribute("required");
+                    endorsedDateInput.required = false;
+                    // Clear the value in the txt box, if any
+                    endorsedDateInput.value = "";
+                    endorsedDateInput.disabled = true;
+                    // Disable the Follow up Dates Txt Box and set as not required
+                    followUpDatesInput.removeAttribute("required");
+                    followUpDatesInput.required = false;
+                    followUpDatesInput.disabled = true;
+                    // Clear the value in the txt box, if any
+                    followUpDatesInput.value = "";
+                    // Disable the Received By Other Dept Date Field and set as not required
+                    receivedOtherDeptdDateInput.removeAttribute("required");
+                    receivedOtherDeptdDateInput.required = false;
+                    receivedOtherDeptdDateInput.disabled = true;
+                    // Clear the value in the txt box, if any
+                    receivedOtherDeptdDateInput.value = "";
+                }
+            });
+        }
 
-        // Selection options on Reason of contact change based on the Type of contact selection
+        // Based on the Type Of Contact, the Reason of Contact fields should be filtered to show Complaints or Inquiries only selections
+        // If Inquiry -> Validity will be disabled
+
         let contactType = document.getElementById('contactType');
         let reasonOfContact = document.getElementById('reasonOfContact');
         let complaintHTMLString = '<option value=""></option><option value="IP Follow up">IP Follow up</option><option value="IP Late Approval">IP Late Approval</option><option value="Late Approval / Follow up">Late Approval / Follow up</option><option value="OP Follow up">OP Follow up</option><option value="OP Late Approval">OP Late Approval</option><option value="Quality of Service NEXtCARE">Quality of Service NEXtCARE</option><option value="Quality of Service Provider">Quality of Service Provider</option><option value="REGULATORY COMPLAINT (DHA/HAAD)">REGULATORY COMPLAINT (DHA/HAAD)</option><option value="Reimbursement Related Complaint">Reimbursement Related Complaint</option><option value="Appeal of Claim Denial">Appeal of Claim Denial</option><option value="Card Number Not Active">Card Number Not Active</option><option value="Card Number Not Exist">Card Number Not Exist</option><option value="Card Related Complaints">Card Related Complaints</option><option value="Late Payment">Late Payment</option><option value="Other Complaints">Other Complaints</option><option value="Policy Related Issues">Policy Related Issues</option><option value="Provider Rejected the Patient">Provider Rejected the Patient</option><option value="Privacy – Revoke consent / Object d">Privacy – Revoke consent / Object d</option>';
         let inquiryHTMLString = '<option value=""></option><option value="Approval Refax / Resend">Approval Refax / Resend</option><option value="Claims-Reimbursement">Claims-Reimbursement</option><option value="Green Crecent Product & Services">Green Crecent Product & Services</option><option value="REIMBURSEMENT CLAIM INTIMATION">REIMBURSEMENT CLAIM INTIMATION</option><option value="Waseel Related Inquiries">Waseel Related Inquiries</option><option value="Coverage">Coverage</option><option value="Network">Network</option><option value="NEXtCARE Mobile App Related Issues">NEXtCARE Mobile App Related Issues</option><option value="Approval Cancellation">Approval Cancellation</option><option value="Approval Extension">Approval Extension</option><option value="Approvals – Pending Requirements">Approvals – Pending Requirements</option><option value="Claim Denial Reason">Claim Denial Reason</option><option value="Network Provider Inclusion Request">Network Provider Inclusion Request</option><option value="Other Inquiry">Other Inquiry</option><option value="Payer Special Request">Payer Special Request</option><option value="Physician license update">Physician license update</option><option value="Privacy – Other General inquiry">Privacy – Other General inquiry</option><option value="Provider Tariff Related Issues">Provider Tariff Related Issues</option><option value="Pulse Related Concerns">Pulse Related Concerns</option><option value="Re-Approval">Re-Approval</option><option value="Revision of Request">Revision of Request</option><option value="Same Day Approval Follow Up">Same Day Approval Follow Up</option><option value="Website Related Issues">Website Related Issues</option><option value="Company Information">Company Information</option><option value="Health Care Provider Audit Request">Health Care Provider Audit Request</option><option value="Member Discharge">Member Discharge</option><option value="Approvals - Pending Requirements">Approvals - Pending Requirements</option>';
+
         contactType.addEventListener('change', () => {
 
-            if (contactType.value == "Complaint") {
-                // if complaint ->
+            if (contactType.value == "Complaint") {                 // if Contact Type changes to Complaint
+                // Insert the complaint tpye Reason Of Contact
                 reasonOfContact.innerHTML = complaintHTMLString;
                 // make Validitiy required
                 validitySelection.setAttribute("required", "");
                 validitySelection.required = true;
                 // Enable validity selection
                 validitySelection.disabled = false;
-            } else if (contactType.value == "Inquiry") {
-                // if inquiry ->
+            } else if (contactType.value == "Inquiry") {            // if Contact Type changes to Inquiry
+                // Insert the inquiry tpye Reason Of Contact
                 reasonOfContact.innerHTML = inquiryHTMLString;
                 // make Validitiy not required
                 validitySelection.removeAttribute("required");
                 validitySelection.required = false;
                 // Disable validity selection
                 validitySelection.disabled = true;
+                // Hide the ITS number Txt Box
+                validOnlySelection.style.display = 'none';
+                itsNumberInput.required = false;
+                // clear dropdown
+                validitySelection.value = "";
             }
 
         });
 
-        // If valid -> no need for ITS number
+        // If Type Complaint & Valid show txt box for ITS number
         let validitySelection = document.getElementById('validitySelection');
-        let validOnlyInput = document.getElementById('validOnlyInput');
-        let validityInput = document.getElementById('validityInput');
+        let validOnlySelection = document.getElementById('validOnlySelection');
+        let itsNumberInput = document.getElementById('itsNumberInput');
 
         validitySelection.addEventListener('change', function () {
-            if (validitySelection.value == "Valid") {
-                validOnlyInput.style.display = 'block';
-                validityInput.setAttribute("required", "");
-                validityInput.required = true;
+
+            if (validitySelection.value == "Valid") {           // If Valid
+                // Show the ITS number Txt Box
+                validOnlySelection.style.display = 'block';
+                itsNumberInput.setAttribute("required", "");
+                itsNumberInput.required = true;
             } else {
-                validOnlyInput.style.display = 'none';
-                validityInput.required = false;
+                // Hide the ITS number Txt Box
+                validOnlySelection.style.display = 'none';
+                itsNumberInput.required = false;
             }
+
         });
+
+        // set GOP row hidden
+        let gopRow = document.getElementById('gop-row');
+        gopRow.style.display = "none";
 
         // If GOP
         let sourceOfContactInput = document.getElementById('sourceOfContactInput');
@@ -577,116 +619,189 @@
         let reasonOfContactDiv = document.getElementById('reasonOfContactDiv');
         let row4 = document.getElementById('row-4');
         let row5 = document.getElementById('row-5');
+        let currentStatusSection = document.getElementById('currentStatusSection');
+        let currentStatusInput = document.getElementById('currentStatusInput');
 
-        sourceOfContactInput.addEventListener('change', ()=> {
+        sourceOfContactInput.addEventListener('change', () => {
+            // if Soruce is GOP
             if (sourceOfContactInput.value == "GOPs") {
                 contactTypeDiv.style.display = "none";
                 reasonOfContactDiv.style.display = "none";
                 row4.style.display = "none";
                 row5.style.display = "none";
+                gopRow.style.display = "flex"
+
+                currentStatusSection.style.display = 'block';
+                currentStatusInput.setAttribute("required", "");
+                currentStatusInput.required = true;
+
+                electiveInput.setAttribute("required", "");
+                electiveInput.required = true;
             } else {
                 contactTypeDiv.style.display = "block";
                 reasonOfContactDiv.style.display = "block";
-                row4.style.display = "block";
-                row5.style.display = "block";
+                row4.style.display = "flex";
+                row5.style.display = "flex";
+                gopRow.style.display = "none";
+
+                currentStatusSection.style.display = 'none';
+                // make it not required
+                currentStatusInput.removeAttribute("required");
+                // clear the value
+                currentStatusInput.value = "";
+
+                // make it not required
+                electiveInput.removeAttribute("required");
+                electiveInput.required = false;
+                // clear the value
+                electiveInput.value = "";
             }
         });
 
         let typeOfGOPInput = document.getElementById('typeOfGOPInput');
+        let payerNotifiedSection = document.getElementById('payerNotifiedSection');
+        let payerNotifiedInput = document.getElementById('payerNotifiedInput');
 
         typeOfGOPInput.addEventListener('change', () => {
-            if (typeOfGOPInput.value) {
-                
+            // if OP less than 20K
+            if (typeOfGOPInput.value == "OP less than 20K") {
+                // show field
+                payerNotifiedSection.style.display = 'block';
+                // make it required
+                payerNotifiedInput.setAttribute("required", "");
+                payerNotifiedInput.required = true;
+                // clear the value
+                payerNotifiedInput.value = "";
+            } else {
+                // hide field
+                payerNotifiedSection.style.display = 'none';
+                // make it not required
+                payerNotifiedInput.removeAttribute("required");
+                payerNotifiedInput.required = false;
+                // clear the value
+                payerNotifiedInput.value = "";
             }
-        });
 
-        // init date time picker
-        $('#receivedDateInput').daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            minYear: 2000,
-            maxYear: parseInt(moment().format('YYYY'), 10),
-            timePicker: true,
-            startDate: moment().startOf('hour'),
-            endDate: moment().startOf('hour').add(32, 'hour'),
-            locale: {
-                format: 'M/DD hh:mm A'
+            // if OP more than 20K
+            if (typeOfGOPInput.value == "OP more than 20K") {
+                row4.style.display = "flex";
+                endorsedToInput.setAttribute("required", "");
+                endorsedToInput.required = true;
+            } else {
+                row4.style.display = "none";
+                endorsedToInput.removeAttribute("required");
+                endorsedToInput.required = false;
             }
+
+
         });
 
-        $('#endorsedDateInput').daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            minYear: 2000,
-            maxYear: parseInt(moment().format('YYYY'), 10),
-            timePicker: true,
-            startDate: moment().startOf('hour'),
-            endDate: moment().startOf('hour').add(32, 'hour'),
-            locale: {
-                format: 'M/DD hh:mm A',
-            }
-        });
-
-        $('#receivedOtherDeptdDateInput').daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            minYear: 2000,
-            maxYear: parseInt(moment().format('YYYY'), 10),
-            timePicker: false,
-            startDate: moment().startOf('hour'),
-            endDate: moment().startOf('hour').add(32, 'hour')
-        });
-
-        $('#closedDateInput').daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            minYear: 2000,
-            maxYear: parseInt(moment().format('YYYY'), 10),
-            timePicker: true,
-            startDate: moment().startOf('hour'),
-            endDate: moment().startOf('hour').add(32, 'hour'),
-            locale: {
-                cancelLabel: 'Clear',
-            }
-        });
-
-        // 
-        // set all endrosed to fields disabled by default
-        endorsedDateInput.removeAttribute("required");
-        endorsedDateInput.required = false;
-        endorsedDateInput.value = "";
-        endorsedDateInput.disabled = true;
-        followUpDatesInput.removeAttribute("required");
-        followUpDatesInput.required = false;
-        followUpDatesInput.disabled = true;
-        receivedOtherDeptdDateInput.removeAttribute("required");
-        receivedOtherDeptdDateInput.required = false;
-        receivedOtherDeptdDateInput.disabled = true;
-        receivedOtherDeptdDateInput.value = "";
-
-        // clear autopopulated dates
-        receivedDateInput.value = "";
-        closedDateInput.value = ""
-
-        // validation
-        'use strict';
-        window.addEventListener('load', function () {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
+        // init date time picker for all date fields
+        function initDates() {
+            // Received Date
+            $('#receivedDateInput').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 2000,
+                maxYear: parseInt(moment().format('YYYY'), 10),
+                timePicker: true,
+                startDate: moment().startOf('hour'),
+                endDate: moment().startOf('hour').add(32, 'hour'),
+                locale: {
+                    format: 'DD/MM/YY hh:mm A'
+                }
             });
-        }, false);
+
+            // Endorsed Date
+            $('#endorsedDateInput').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 2000,
+                maxYear: parseInt(moment().format('YYYY'), 10),
+                timePicker: true,
+                startDate: moment().startOf('hour'),
+                endDate: moment().startOf('hour').add(32, 'hour'),
+                locale: {
+                    format: 'DD/MM/YY hh:mm A',
+                }
+            });
+
+            // Received From Other Dept Date
+            $('#receivedOtherDeptdDateInput').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 2000,
+                maxYear: parseInt(moment().format('YYYY'), 10),
+                timePicker: false,
+                startDate: moment().startOf('hour'),
+                endDate: moment().startOf('hour').add(32, 'hour')
+            });
+
+            // Closed On Date
+            $('#closedDateInput').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 2000,
+                maxYear: parseInt(moment().format('YYYY'), 10),
+                timePicker: true,
+                startDate: moment().startOf('hour'),
+                endDate: moment().startOf('hour').add(32, 'hour'),
+                locale: {
+                    format: 'DD/MM/YY hh:mm A'
+                }
+            });
+        }
+
+        function lockAgentToggle() {
+            // Saving agent name 
+            let lockAgentToggle = document.getElementById('lockAgentToggle');
+            let agentDropDown = document.getElementById('agentDropDown');
+
+            // on document load, get the agent name from local storage
+            if (localStorage.getItem("agentName")) {
+                agentDropDown.value = localStorage.getItem("agentName");
+                // change the color of the text
+                lockAgentToggle.style.color = '#28bd35';
+            }
+
+            // save or delete agent name from local storage
+            lockAgentToggle.addEventListener('click', function () {
+
+                if (localStorage.getItem("agentName") == null) {
+                    localStorage.setItem("agentName", agentDropDown.value);
+                    // change the color of the text
+                    lockAgentToggle.style.color = '#28bd35'
+                } else {
+                    localStorage.removeItem("agentName");
+                    // revert back the text color to black
+                    lockAgentToggle.style.color = ''
+                }
+
+            });
+        }
+
+        function setDefaults() {
+            // set all endrosed to fields disabled by default
+            endorsedDateInput.removeAttribute("required");
+            endorsedDateInput.required = false;
+            endorsedDateInput.value = "";
+            endorsedDateInput.disabled = true;
+            followUpDatesInput.removeAttribute("required");
+            followUpDatesInput.required = false;
+            followUpDatesInput.disabled = true;
+            receivedOtherDeptdDateInput.removeAttribute("required");
+            receivedOtherDeptdDateInput.required = false;
+            receivedOtherDeptdDateInput.disabled = true;
+            receivedOtherDeptdDateInput.value = "";
+
+            // clear autopopulated dates
+            receivedDateInput.value = "";
+            closedDateInput.value = ""
+        }
 
     </script>
 
+    <!-- Validation for required fields -->
     <script>
         (function () {
             'use strict';
@@ -701,30 +816,22 @@
                             event.preventDefault();
                             event.stopPropagation();
                         } else if (receivedDateInput.value == "") {
-                            // date validation                            
+                            // date validation
                             event.preventDefault();
                             event.stopPropagation();
                             alert("Received Time is empty");
                         }
-                        form.classList.add('was-validated');
                     }, false);
                 });
             }, false);
 
-            // var formSubmitBtn = document.getElementById('formSubmitBtn');
-
-
-            // formSubmitBtn.addEventListener('click', () => {
-            //     console.log(receivedDateInput.value);
-            //     alert("");
-
-            // });
-
         })();
     </script>
 
+    <!-- reloads the logger after submission instead of going to Google Forms -->
     <script type="text/javascript">var submitted = false;</script>
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted)  {window.location='index.html';}"></iframe>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+        onload="if(submitted)  {window.location='index.html';}"></iframe>
 
 </body>
 
