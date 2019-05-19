@@ -7,47 +7,725 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CCU Email Log Tool</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/daterangepicker.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <script src="./js/jquery-3.4.1.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/moment.min.js"></script>
+    <script src="./js/daterangepicker.min.js"></script>
 
     <div class="container">
 
         <div class="jumbotron">
             <h1 class="display-4">CCU Email Logger</h1>
         </div>
-
-        <form class="needs-validation" novalidate="" id="ccuEntryForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdYwNsWl6tfM1sntQ1-eDe3m3yaKfwHWiKhWOfddpnXw_XGXw/formResponse"
+        <!-- read more : https://blog.webjeda.com/google-form-customize/ -->
+        <form class="needs-validation" novalidate="" id="ccuEntryForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdbUV4V9CwbiLaCK0pfLYjMM3uETwjw0LOh4TT0qLhpcZXMfg/formResponse"
             target="hidden_iframe" onsubmit="submitted=true;">
-            <div class="row">
+
+            <div class="row form-group-custom">
+
+                <div class="col-2">
+                    <label for="">
+                        <h6>Source Of Contact</h6>
+                    </label>
+                        <select class="custom-select" name="entry.112921490" id="sourceOfContactInput" required>
+                            <option value=""></option>
+                            <option value="Walk Ins">Walk Ins</option>
+                            <option value="Calls">Calls</option>
+                            <option value="BDU">BDU</option>
+                            <option value="Regular Emails">Regular Emails</option>
+                            <option value="GOPs">GOPs</option>
+                        </select>
+                </div>
+
+                <div class="col-8">
+                    <label for="">
+                        <h6>Subject</h6>
+                    </label>
+                    <input type="text" class="form-control" value="N/A" name="" required="">
+                </div>
+
+            </div>
+
+            <div class="row form-group-custom">
                 <div class="col-sm">
+                    <i class="fas fa-lock float-right" style="margin:5px; cursor: pointer;" id="lockAgentToggle" title="Lock your name on this page. Click again to clear"></i>
+                    <label for="">
+                        <h6>Entered By</h6>
+                    </label>
+                    <select class="custom-select" name="entry.112921490" id="agentDropDown" required>
+                        <option value=""></option>
+                        <option value="Abdulla Bakhit Salem">Abdulla Bakhit Salem</option>
+                        <option value="Dr. Shaima Abubacker">Dr. Shaima Abubacker</option>
+                        <option value="Dr. Sher Bacha">Dr. Sher Bacha</option>
+                        <option value="Dr. Wafa Bakhouche">Dr. Wafa Bakhouche</option>
+                        <option value="Earldwin James Dauz Brackett">Earldwin James Dauz Brackett</option>
+                        <option value="Eloy Manguba">Eloy Manguba</option>
+                        <option value="Emery O. Vite">Emery O. Vite</option>
+                        <option value="Farah Farhoud">Farah Farhoud</option>
+                        <option value="Hannah Ursula Mae Palces">Hannah Ursula Mae Palces</option>
+                        <option value="Hazaa Khalfan Ahmed Al Shamsi">Hazaa Khalfan Ahmed Al Shamsi</option>
+                        <option value="Irene Cuyugan">Irene Cuyugan</option>
+                        <option value="Jerome A. Pascual">Jerome A. Pascual</option>
+                        <option value="Jobe Cruz">Jobe Cruz</option>
+                        <option value="John Micheal Cosico">John Micheal Cosico</option>
+                        <option value="Julius Ureta">Julius Ureta</option>
+                        <option value="Mayan Hassan Mohammed Hassan">Mayan Hassan Mohammed Hassan</option>
+                        <option value="Nurse Afrah Youssef Mohamed">Nurse Afrah Youssef Mohamed</option>
+                        <option value="Rahiel Belai Haile">Rahiel Belai Haile</option>
+                        <option value="Romar Agbuya">Romar Agbuya</option>
+                        <option value="Said Mohammed Said Al Saadi">Said Mohammed Said Al Saadi</option>
+                        <option value="Saviona  Radja">Saviona Radja</option>
+                        <option value="Shamma Elias AlEbri">Shamma Elias AlEbri</option>
+                    </select>
+                </div>
+                <div class="col-8">
+                    <label for="">
+                        <h6>Payer Name</h6>
+                    </label>
+                    <select class="custom-select" name="entry.720206906" id="payerNameSelection" required>
+                        <option value=""></option>
+                        <option value="ABU DHABI NATIONAL INSURANCE CO. ADNIC">ABU DHABI NATIONAL INSURANCE CO. ADNIC
+                        </option>
+                        <option value="Abu Dhabi National Takaful">Abu Dhabi National Takaful</option>
+                        <option value="Adamjee Insurance Co. Ltd.">Adamjee Insurance Co. Ltd.</option>
+                        <option value="Al Buhairah National Insurance Co.">Al Buhairah National Insurance Co.</option>
+                        <option value="Al Fujairah National Insurance Co.">Al Fujairah National Insurance Co.</option>
+                        <option value="Al Hilal Takaful Co.">Al Hilal Takaful Co.</option>
+                        <option value="Al Ittihad Al Watani ">Al Ittihad Al Watani </option>
+                        <option value="AL RAWABI DAIRY GROUP (under Takaful Emarat)">AL RAWABI DAIRY GROUP (under
+                            Takaful Emarat)</option>
+                        <option value="Al Sagr National Ins. Co.">Al Sagr National Ins. Co.</option>
+                        <option value="Alliance Insurance Company">Alliance Insurance Company</option>
+                        <option value="Aman -Dubai Islamic Insurance & Re.">Aman -Dubai Islamic Insurance & Re.</option>
+                        <option value="Amana Group (Under Takaful Emarat)">Amana Group (Under Takaful Emarat)</option>
+                        <option value="American home Assurance (AIG)">American home Assurance (AIG)</option>
+                        <option value="Arabia Insurance Co.">Arabia Insurance Co.</option>
+                        <option value="Arabian Scandinavian Insurance Co. (ASCANA)">Arabian Scandinavian Insurance Co.
+                            (ASCANA)</option>
+                        <option value="AWC">AWC</option>
+                        <option value="AXA Green Crescent">AXA Green Crescent</option>
+                        <option value="Clover">Clover</option>
+                        <option value="DP World">DP World</option>
+                        <option value="DryDocks (SFS)">DryDocks (SFS)</option>
+                        <option value="Dubai Islamic Economy Devt Centre (Diedc)">Dubai Islamic Economy Devt Centre
+                            (Diedc)</option>
+                        <option value="Dubai National Ins. & Reins. Co.">Dubai National Ins. & Reins. Co.</option>
+                        <option value="Freedom Health Insurance">Freedom Health Insurance</option>
+                        <option value="Future Museum (Dubai Future Foundation)">Future Museum (Dubai Future Foundation)
+                        </option>
+                        <option value="Gargash">Gargash</option>
+                        <option value="Gateway International Assurance">Gateway International Assurance</option>
+                        <option value="German Care Intl ">German Care Intl </option>
+                        <option value="Global Benefit Group - GBG">Global Benefit Group - GBG</option>
+                        <option value="Hauteville - DCI/DIC">Hauteville - DCI/DIC</option>
+                        <option value="Iran Insurance">Iran Insurance</option>
+                        <option value="Jumeirah International LLC">Jumeirah International LLC</option>
+                        <option value="Majid Al Futtaim (Under Takaful Emarat)">Majid Al Futtaim (Under Takaful Emarat)
+                        </option>
+                        <option value="Medgulf-Allianz Takaful">Medgulf-Allianz Takaful</option>
+                        <option value="Medgulf-Bahrain">Medgulf-Bahrain</option>
+                        <option value="Medgulf-KSA">Medgulf-KSA</option>
+                        <option value="Medgulf-UAE">Medgulf-UAE</option>
+                        <option value="Methaq Takaful Insurance Company">Methaq Takaful Insurance Company</option>
+                        <option value="Metlife">Metlife</option>
+                        <option value="Ministry Of Cabinet Affairs (Moca)">Ministry Of Cabinet Affairs (Moca)</option>
+                        <option value="Muscat Life">Muscat Life</option>
+                        <option value="National General Insurance">National General Insurance</option>
+                        <option value="National Life & General Insurance - AUH">National Life & General Insurance -
+                            AUH
+                        </option>
+                        <option value="National Life & General Insurance - Dubai">National Life & General Insurance -
+                            Dubai</option>
+                        <option value="National Takaful Company PSC, Watania">National Takaful Company PSC, Watania
+                        </option>
+                        <option value="Noor Takaful">Noor Takaful</option>
+                        <option value="Oman Ins UAE ">Oman Ins UAE </option>
+                        <option value="Oman Qatar Insurance Company">Oman Qatar Insurance Company</option>
+                        <option value="Oman United Insurance">Oman United Insurance</option>
+                        <option value="Orient Insurance PJSC">Orient Insurance PJSC</option>
+                        <option value="Prime Minister's Office">Prime Minister's Office</option>
+                        <option value="Public Diplomacy Office (Pdo)">Public Diplomacy Office (Pdo)</option>
+                        <option value="Qatar General Insurance & Re. (UAE)">Qatar General Insurance & Re. (UAE)</option>
+                        <option value="RTA">RTA</option>
+                        <option value="SALAMA - Islamic Arab Ins. Co.">SALAMA - Islamic Arab Ins. Co.</option>
+                        <option value="SCB ">SCB </option>
+                        <option value="Smart Dubai Office">Smart Dubai Office</option>
+                        <option value="Solidarity Takaful">Solidarity Takaful</option>
+                        <option value="Takaful Emarat">Takaful Emarat</option>
+                        <option value="Takaful International Co.">Takaful International Co.</option>
+                        <option value="Takaful Oman ">Takaful Oman </option>
+                        <option value="The Executive Office (Teo)">The Executive Office (Teo)</option>
+                        <option value="The New Indian Assurance ">The New Indian Assurance </option>
+                        <option value="Tokyo Marine">Tokyo Marine</option>
+                        <option value="Union Insurance ">Union Insurance </option>
+                        <option value="United Insurance Co">United Insurance Co</option>
+                        <option value="William Russell">William Russell</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row form-group-custom">
+
+                <!-- shows only when Orient is selected as Payer Name -->
+                <div class="col-sm" style="display:none;" id="orientOnlySelection">
+                    <label>
+                        <h6 style="color: #007bff">Group Name (Orient)</h6>
+                    </label>
+                    <br>
+                    <select class="custom-select" name="entry.2126530801" id="orientOnlyInput">
+                        <option value=""></option>
+                        <option value="DU">DU</option>
+                        <option value="ADCB">ADCB</option>
+                        <option value="ASSD">ASSD</option>
+                        <option value="Dubai South">Dubai South</option>
+                        <option value="Dubai Aviation">Dubai Aviation</option>
+                        <option value="DEPA">DEPA</option>
+                        <option value="National Ambulance">National Ambulance</option>
+                        <option value="ADEK">ADEK</option>
+                        <option value="Al Futtaim Willis">Al Futtaim Willis</option>
+                        <option value="DIFC">DIFC</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- shows only when Takaful Emarat is selected as Payer Name -->
+                <div class="col-sm" style="display:none;" id="takafulOnlySelection">
+                    <label>
+                        <h6 style="color: #007bff">Group Name (Takaful Emarat)</h6>
+                    </label>
+                    <br>
+                    <select class="custom-select" name="entry.2126530801" id="takafulOnlyInput">
+                        <option value=""></option>
+                        <option value="Al Tayer Group">Al Tayer Group</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- shows only when Medgulf UAE is selected as Payer Name -->
+                <div class="col-sm" style="display:none;" id="medGulfOnlySelection">
+                    <label>
+                        <h6 style="color: #007bff">Group Name (Medgulf UAE)</h6>
+                    </label>
+                    <br>
+                    <select class="custom-select" name="entry.2126530801" id="medGulfOnlyInput">
+                        <option value=""></option>
+                        <option value="Mott Macdonald">Mott Macdonald</option>
+                        <option value="Veolia">Veolia</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="col-sm">
+                    <label>
+                        <h6>Card Number/ E-ID</h6>
+                    </label>
+                    <br>
+                    <input type="text" class="form-control" name="entry.187295482" required="">
+                </div>
+                <div class="col-sm">
+                    <label>
+                        <h6>Received Date & Time</h6>
+                    </label>
+                    <br>
+                    <input type="text" class="form-control" placeholder="Click Here Select" name="entry.2001175821" id="receivedDateInput"
+                        readonly required />
+                </div>
+
+                <div class="col-sm" id="contactTypeDiv">
+                    <label>
+                        <h6>Type Of Contact</h6>
+                    </label>
+                    <br>
+                    <select class="custom-select" name="entry.619045907" id="contactType" required>
+                        <option value=""></option>
+                        <option value="Complaint">Complaint</option>
+                        <option value="Inquiry">Inquiry</option>
+                    </select>
+                </div>
+
+                <!-- / -->
+                <div class="col-sm" id="reasonOfContactDiv">
+                    <label>
+                        <h6>Reason Of Contact</h6>
+                    </label>
+                    <select class="custom-select" name="entry.295681517" required id="reasonOfContact">
+                        <option value=""></option>
+
+                    </select>
+                </div>
+            </div>
+
+            <!-- style="display:none" -->
+            <div class="row form-group-custom" id="gop-row" >
+
+                    <div class="col-3">
+                        <label for="">
+                            <h6>Type Of GOP</h6>
+                        </label>
+                            <select class="custom-select" name="" id="typeOfGOPInput" required>
+                                <option value=""></option>
+                                <option value="OP less than 20K">OP less than 20K</option>
+                                <option value="OP more than 20K">OP more than 20K</option>
+                                <option value="IP">IP</option>
+                            </select>
+                    </div>
+
+                    <div class="col-2">
+                            <label for="">
+                                <h6>Payer Notified</h6>
+                            </label>
+                                <select class="custom-select" name="" id="payerNotifiedInput" required>
+                                    <option value=""></option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                        </div>
+    
+                    <div class="col-8">
+                        <label for="">
+                            <h6>ER/ Elective</h6>
+                        </label>
+                        <input type="text" class="form-control" name="" >
+                    </div>
+    
+                </div>
+
+            <div class="row form-group-custom endorsement-group" id="row-4">
+
+                <div class="col-sm">
+                    <label for="">
+                        <h6>Endorsed To</h6>
+                    </label>
+                    <select class="custom-select" name="entry.1682970517" id="endorsedToInput">
+                        <option value=""></option>
+                        <option value="OP Precert">OP Precert</option>
+                        <option value="Care Center">Care Center</option>
+                        <option value="IP Precert">IP Precert</option>
+                        <option value="CMUR">CMUR</option>
+                        <option value="PMO">PMO</option>
+                        <option value="CMD">CMD</option>
+                        <option value="BDU">BDU</option>
+                        <option value="PMP">PMP</option>
+                        <option value="Provider">Provider</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="col-sm" id="endorsedToOtherSelection" style="display:none; color: #007bff;">
+                    <label>
+                        <h6>Endorsed To - Other</h6>
+                    </label>
+                    <br>
+                    <input type="text" class="form-control" name="entry.1064304316" id="endorsedToOtherInput">
+                </div>
+
+                <div class="col-sm">
+                    <label>
+                        <h6>Endorsed Time</h6>
+                    </label>
+                    <br>
+                    <input type="text" class="form-control" name="entry.1713142042" id="endorsedDateInput" readonly />
+                </div>
+
+                <div class="col-sm">
+                    <label>
+                        <h6>Follow Up Dates</h6>
+                    </label>
+                    <br>
+                    <input type="text" class="form-control" name="entry.1663804159" id="followUpDatesInput">
+                </div>
+
+                <div class="col-sm">
+                    <label>
+                        <h6 style="font-size: .80rem;">Received Date From Assigned Department</h6>
+                    </label>
+                    <br>
+                    <input type="text" class="form-control" name="entry.505793025" id="receivedOtherDeptdDateInput"
+                        readonly />
+                </div>
+            </div>
+
+            <div class="row form-group-custom" id="row-5">
+                <div class="col-sm">
+                    <label>
+                        <h6>Closed Time</h6>
+                    </label>
+                    <br>
+                    <input type="text" class="form-control" name="entry.1496977968" id="closedDateInput" placeholder="Click Here Select"
+                        readonly required />
+                </div>
+
+                <div class="col-sm">
+                    <label>
+                        <h6>Validity</h6>
+                    </label>
+                    <br>
+                    <select class="custom-select" name="entry.1314423683" id="validitySelection" required>
+                        <option value=""></option>
+                        <option value="Valid">Valid</option>
+                        <option value="Invalid">Invalid</option>
+                    </select>
+                </div>
+
+                <div class="col-sm" id="validOnlyInput" style="display:none;">
                     <label>
                         <h6>ITS Number</h6>
                     </label>
                     <br>
-                    <input type="text" class="form-control" name="entry.625777808" value="0000">
+                    <input type="text" class="form-control" name="entry.1284483426" id="validityInput">
                 </div>
+
+            </div>
+
+            <div class="row form-group-custom">
                 <div class="col-sm">
                     <label>
-                        <h6>Login ID</h6>
+                        <h6>Action Taken</h6>
                     </label>
                     <br>
-                    <input type="text" class="form-control" name="entry.242266648" required="" placeholder="NOT the phone extention">
-                </div>
-                <div class="col-sm">
-                    <label>
-                        <h6>Caller Mobile Number</h6>
-                    </label>
-                    <br>
-                    <input type="text" class="form-control" name="entry.244316094" required="">
+                    <textarea class="form-control" rows="4" name="entry.1986532165" required></textarea>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <button type="submit" class="btn btn-primary float-right btn-lg" id="formSubmitBtn">Submit</button>
+                </div>
+            </div>
+
         </form>
+        <p>For any issues or feedback, please mail <a href="mailto:Gavin.DeSilva@nextcarehealth.com">Gavin.DeSilva@nextcarehealth.com</a>
+            or contact your team lead.</p>
     </div>
+
+    <script>
+
+        // Saving agent name 
+        let lockAgentToggle = document.getElementById('lockAgentToggle');
+        let agentDropDown = document.getElementById('agentDropDown');
+
+        // on document load, get the agent name from local storage
+        if (localStorage.getItem("agentName")) {
+            agentDropDown.value = localStorage.getItem("agentName");
+            lockAgentToggle.style.color = '#28bd35'
+        }
+
+        // save or delete agent name from local storage
+        lockAgentToggle.addEventListener('click', function () {
+
+            if (localStorage.getItem("agentName") == null) {
+                localStorage.setItem("agentName", agentDropDown.value);
+                lockAgentToggle.style.color = '#28bd35'
+            } else {
+                localStorage.removeItem("agentName");
+                lockAgentToggle.style.color = ''
+            }
+
+        });
+
+        let payerNameSelection = document.getElementById('payerNameSelection');
+
+        // If Orient -> 
+        let orientOnlySelection = document.getElementById('orientOnlySelection');
+        let orientOnlyInput = document.getElementById('orientOnlyInput');
+
+        // If Takaful -> 
+        let takafulOnlySelection = document.getElementById('takafulOnlySelection');
+        let takafulOnlyInput = document.getElementById('takafulOnlyInput');
+
+        payerNameSelection.addEventListener('change', function () {
+
+            // If Orient -> 
+            if (payerNameSelection.value == "Orient Insurance PJSC") {
+                orientOnlySelection.style.display = 'block';
+                orientOnlyInput.setAttribute("required", "");
+                orientOnlyInput.required = true;
+            } else {
+                orientOnlySelection.style.display = 'none';
+                orientOnlySelection.removeAttribute("required");
+                orientOnlyInput.required = false;
+            }
+
+            // If Takaful -> 
+            if (payerNameSelection.value == "Takaful Emarat") {
+                takafulOnlySelection.style.display = 'block';
+                takafulOnlyInput.setAttribute("required", "");
+                takafulOnlyInput.required = true;
+            } else {
+                takafulOnlySelection.style.display = 'none';
+                takafulOnlySelection.removeAttribute("required");
+                takafulOnlyInput.required = false;
+            }
+
+            // If MedGulf -> 
+            if (payerNameSelection.value == "Medgulf-UAE") {
+                medGulfOnlySelection.style.display = 'block';
+                medGulfOnlyInput.setAttribute("required", "");
+                medGulfOnlyInput.required = true;
+            } else {
+                medGulfOnlySelection.style.display = 'none';
+                medGulfOnlySelection.removeAttribute("required");
+                medGulfOnlyInput.required = false;
+            }
+        });
+
+        // Endorsed to other
+        let endorsedToOtherSelection = document.getElementById('endorsedToOtherSelection');
+        let endorsedToInput = document.getElementById('endorsedToInput');
+        let endorsedToOtherInput = document.getElementById('endorsedToOtherInput');
+
+        let endorsedDateInput = document.getElementById('endorsedDateInput');
+        let followUpDatesInput = document.getElementById('followUpDatesInput');
+        let receivedOtherDeptdDateInput = document.getElementById('receivedOtherDeptdDateInput');
+
+        endorsedToInput.addEventListener('change', function () {
+            if (endorsedToInput.value == "Other") {
+                endorsedToOtherSelection.style.display = 'block';
+                endorsedToOtherInput.setAttribute("required", "");
+                endorsedToOtherInput.required = true;
+            } else {
+                endorsedToOtherSelection.style.display = 'none';
+                endorsedToOtherSelection.removeAttribute("required");
+                endorsedToOtherInput.required = false;
+            }
+
+            // if Endorsed To is not empty, the other fileds become required
+            // Endorsed Time
+            // Follow Up Dates
+            // Received Date From Assigned Department
+
+            if (endorsedToInput.value !== "") {
+                endorsedDateInput.setAttribute("required", "");
+                endorsedDateInput.required = true;
+                endorsedDateInput.disabled = false;
+                followUpDatesInput.setAttribute("required", "");
+                followUpDatesInput.required = true;
+                followUpDatesInput.disabled = false;
+                receivedOtherDeptdDateInput.setAttribute("required", "");
+                receivedOtherDeptdDateInput.required = true;
+                receivedOtherDeptdDateInput.disabled = false;
+            } else {
+                endorsedDateInput.removeAttribute("required");
+                endorsedDateInput.required = false;
+                endorsedDateInput.value = "";
+                endorsedDateInput.disabled = true;
+                followUpDatesInput.removeAttribute("required");
+                followUpDatesInput.required = false;
+                followUpDatesInput.disabled = true;
+                receivedOtherDeptdDateInput.removeAttribute("required");
+                receivedOtherDeptdDateInput.required = false;
+                receivedOtherDeptdDateInput.value = "";
+                receivedOtherDeptdDateInput.disabled = true;
+            }
+        });
+
+        // Selection options on Reason of contact change based on the Type of contact selection
+        let contactType = document.getElementById('contactType');
+        let reasonOfContact = document.getElementById('reasonOfContact');
+        let complaintHTMLString = '<option value=""></option><option value="IP Follow up">IP Follow up</option><option value="IP Late Approval">IP Late Approval</option><option value="Late Approval / Follow up">Late Approval / Follow up</option><option value="OP Follow up">OP Follow up</option><option value="OP Late Approval">OP Late Approval</option><option value="Quality of Service NEXtCARE">Quality of Service NEXtCARE</option><option value="Quality of Service Provider">Quality of Service Provider</option><option value="REGULATORY COMPLAINT (DHA/HAAD)">REGULATORY COMPLAINT (DHA/HAAD)</option><option value="Reimbursement Related Complaint">Reimbursement Related Complaint</option><option value="Appeal of Claim Denial">Appeal of Claim Denial</option><option value="Card Number Not Active">Card Number Not Active</option><option value="Card Number Not Exist">Card Number Not Exist</option><option value="Card Related Complaints">Card Related Complaints</option><option value="Late Payment">Late Payment</option><option value="Other Complaints">Other Complaints</option><option value="Policy Related Issues">Policy Related Issues</option><option value="Provider Rejected the Patient">Provider Rejected the Patient</option><option value="Privacy – Revoke consent / Object d">Privacy – Revoke consent / Object d</option>';
+        let inquiryHTMLString = '<option value=""></option><option value="Approval Refax / Resend">Approval Refax / Resend</option><option value="Claims-Reimbursement">Claims-Reimbursement</option><option value="Green Crecent Product & Services">Green Crecent Product & Services</option><option value="REIMBURSEMENT CLAIM INTIMATION">REIMBURSEMENT CLAIM INTIMATION</option><option value="Waseel Related Inquiries">Waseel Related Inquiries</option><option value="Coverage">Coverage</option><option value="Network">Network</option><option value="NEXtCARE Mobile App Related Issues">NEXtCARE Mobile App Related Issues</option><option value="Approval Cancellation">Approval Cancellation</option><option value="Approval Extension">Approval Extension</option><option value="Approvals – Pending Requirements">Approvals – Pending Requirements</option><option value="Claim Denial Reason">Claim Denial Reason</option><option value="Network Provider Inclusion Request">Network Provider Inclusion Request</option><option value="Other Inquiry">Other Inquiry</option><option value="Payer Special Request">Payer Special Request</option><option value="Physician license update">Physician license update</option><option value="Privacy – Other General inquiry">Privacy – Other General inquiry</option><option value="Provider Tariff Related Issues">Provider Tariff Related Issues</option><option value="Pulse Related Concerns">Pulse Related Concerns</option><option value="Re-Approval">Re-Approval</option><option value="Revision of Request">Revision of Request</option><option value="Same Day Approval Follow Up">Same Day Approval Follow Up</option><option value="Website Related Issues">Website Related Issues</option><option value="Company Information">Company Information</option><option value="Health Care Provider Audit Request">Health Care Provider Audit Request</option><option value="Member Discharge">Member Discharge</option><option value="Approvals - Pending Requirements">Approvals - Pending Requirements</option>';
+        contactType.addEventListener('change', () => {
+
+            if (contactType.value == "Complaint") {
+                // if complaint ->
+                reasonOfContact.innerHTML = complaintHTMLString;
+                // make Validitiy required
+                validitySelection.setAttribute("required", "");
+                validitySelection.required = true;
+                // Enable validity selection
+                validitySelection.disabled = false;
+            } else if (contactType.value == "Inquiry") {
+                // if inquiry ->
+                reasonOfContact.innerHTML = inquiryHTMLString;
+                // make Validitiy not required
+                validitySelection.removeAttribute("required");
+                validitySelection.required = false;
+                // Disable validity selection
+                validitySelection.disabled = true;
+            }
+
+        });
+
+        // If valid -> no need for ITS number
+        let validitySelection = document.getElementById('validitySelection');
+        let validOnlyInput = document.getElementById('validOnlyInput');
+        let validityInput = document.getElementById('validityInput');
+
+        validitySelection.addEventListener('change', function () {
+            if (validitySelection.value == "Valid") {
+                validOnlyInput.style.display = 'block';
+                validityInput.setAttribute("required", "");
+                validityInput.required = true;
+            } else {
+                validOnlyInput.style.display = 'none';
+                validityInput.required = false;
+            }
+        });
+
+        // If GOP
+        let sourceOfContactInput = document.getElementById('sourceOfContactInput');
+        let contactTypeDiv = document.getElementById('contactTypeDiv');
+        let reasonOfContactDiv = document.getElementById('reasonOfContactDiv');
+        let row4 = document.getElementById('row-4');
+        let row5 = document.getElementById('row-5');
+
+        sourceOfContactInput.addEventListener('change', ()=> {
+            if (sourceOfContactInput.value == "GOPs") {
+                contactTypeDiv.style.display = "none";
+                reasonOfContactDiv.style.display = "none";
+                row4.style.display = "none";
+                row5.style.display = "none";
+            } else {
+                contactTypeDiv.style.display = "block";
+                reasonOfContactDiv.style.display = "block";
+                row4.style.display = "block";
+                row5.style.display = "block";
+            }
+        });
+
+        let typeOfGOPInput = document.getElementById('typeOfGOPInput');
+
+        typeOfGOPInput.addEventListener('change', () => {
+            if (typeOfGOPInput.value) {
+                
+            }
+        });
+
+        // init date time picker
+        $('#receivedDateInput').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            minYear: 2000,
+            maxYear: parseInt(moment().format('YYYY'), 10),
+            timePicker: true,
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(32, 'hour'),
+            locale: {
+                format: 'M/DD hh:mm A'
+            }
+        });
+
+        $('#endorsedDateInput').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            minYear: 2000,
+            maxYear: parseInt(moment().format('YYYY'), 10),
+            timePicker: true,
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(32, 'hour'),
+            locale: {
+                format: 'M/DD hh:mm A',
+            }
+        });
+
+        $('#receivedOtherDeptdDateInput').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            minYear: 2000,
+            maxYear: parseInt(moment().format('YYYY'), 10),
+            timePicker: false,
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(32, 'hour')
+        });
+
+        $('#closedDateInput').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            minYear: 2000,
+            maxYear: parseInt(moment().format('YYYY'), 10),
+            timePicker: true,
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(32, 'hour'),
+            locale: {
+                cancelLabel: 'Clear',
+            }
+        });
+
+        // 
+        // set all endrosed to fields disabled by default
+        endorsedDateInput.removeAttribute("required");
+        endorsedDateInput.required = false;
+        endorsedDateInput.value = "";
+        endorsedDateInput.disabled = true;
+        followUpDatesInput.removeAttribute("required");
+        followUpDatesInput.required = false;
+        followUpDatesInput.disabled = true;
+        receivedOtherDeptdDateInput.removeAttribute("required");
+        receivedOtherDeptdDateInput.required = false;
+        receivedOtherDeptdDateInput.disabled = true;
+        receivedOtherDeptdDateInput.value = "";
+
+        // clear autopopulated dates
+        receivedDateInput.value = "";
+        closedDateInput.value = ""
+
+        // validation
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+
+    </script>
+
+    <script>
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                var receivedDateInput = document.getElementById('receivedDateInput');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        } else if (receivedDateInput.value == "") {
+                            // date validation                            
+                            event.preventDefault();
+                            event.stopPropagation();
+                            alert("Received Time is empty");
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+
+            // var formSubmitBtn = document.getElementById('formSubmitBtn');
+
+
+            // formSubmitBtn.addEventListener('click', () => {
+            //     console.log(receivedDateInput.value);
+            //     alert("");
+
+            // });
+
+        })();
+    </script>
+
+    <script type="text/javascript">var submitted = false;</script>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted)  {window.location='index.html';}"></iframe>
+
 </body>
 
 </html>
